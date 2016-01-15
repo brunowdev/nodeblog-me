@@ -108,10 +108,13 @@ input[type='text'] {
 
 textarea {
     height: 70px;
-    width: 400px;    
+    width: 400px;
 }
 
 input, select, textarea {
     margin-bottom: 8px;
 }
 
+.post,.show img {
+    width: 100%;
+}

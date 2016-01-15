@@ -37,3 +37,4 @@ process.on('SIGINT', function () {
 
 require('./post.js');
 require('./category.js');
+require('./comment.js');

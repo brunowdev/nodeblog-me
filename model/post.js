@@ -13,6 +13,9 @@ var PostSchema = new mongoose.Schema({
     body: {
         type: String
     },
+    image: {
+        type: String
+    },
     date: {
          type: Date, default: Date.now
     

@@ -11,13 +11,24 @@ var flash = require('connect-flash');
 var db = require('./model/db.js');
 var routes = require('./routes/index');
 var posts = require('./routes/posts');
+var categories = require('./routes/categories.js');
 var config = require('./config.js');
 var app = express();
 
 app.locals.moment = require('moment');
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.locals.truncateText = function (text, length) {
+    
+    if (text.length > 400) {
+        var truncateText = text.substring(0, length);
+        return truncateText;
+    } else {
+        return text;
+    } 
+};
+
+// view engine setup app.set('views', path.join(__dirname, 'views') )
+
 app.set('view engine', 'jade');
 
 // Handle file uploads
@@ -81,6 +92,7 @@ app.use(function (request, response, next) {
 
 app.use('/', routes);
 app.use('/posts', posts);
+app.use('/categories', categories);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
